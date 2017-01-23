@@ -7,19 +7,16 @@ angular.module('app', ['ngRoute'])
         controller: 'TimerCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/homepage'
       });
   })
 
   .controller('TimerCtrl', function($scope) {
     $scope.time = 0;
 
+    //redirect to countdown page
 
   })
-
-
-
-
 
 // function getTimeRemaining(endtime){
 //       var t = Date.parse(endtime) - Date.parse(new Date());

@@ -1,0 +1,27 @@
+{
+  "name": "mvp",
+  "version": "1.0.0",
+  "description": "timer app",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.7.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bentljm/mvp.git"
+  },
+  "keywords": [
+    "timer"
+  ],
+  "author": "Jeff Bentler",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/bentljm/mvp/issues"
+  },
+  "homepage": "https://github.com/bentljm/mvp#readme"
+}
