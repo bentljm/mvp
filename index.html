@@ -3,13 +3,15 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">></script>
     <script src='app.js'></script>
+    <link rel='stylesheet' type='text/css' href='styles.css'/>
   </head>
   <body>
-    <div ng-app='app.js'>
-      <nav>
-        <a href="#/">Homepage</a>
-      </nav>
-      <div ng-view></div>
+    <h1>Timer</h1>
+     <div class='navigation' ng-app='app.js'>
+      <ul>
+        <li><a href='#/homepage' class='index'>Homepage</a></li>
+        <li><a href='#/timer' class="create">Timer</a></li>
+      </ul>
     </div>
   </body>
 </html>
