@@ -8,12 +8,13 @@ var Timer = require('./timerModel.js')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var port = 4000;
-
 app.use(express.static(path.join(__dirname, 'client')));
 
+
+port = process.env.PORT || 3000;
+
 var server = app.listen(port);
-console.log('Listening on port ' + port);
+console.log('Listening on port ' + 5000);
 
 //handle POST request
 app.post('/api/data', function(req, res){
