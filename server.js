@@ -17,15 +17,16 @@ console.log('Listening on port ' + port);
 
 //handle POST request
 app.post('/api/data', function(req, res){
-
+    console.log("STOPWATCH", req.body.timer)
     var newTimer = new Timer({
         timer: req.body.timer
     });
+    console.log(newTimer.timer)
     newTimer.save(function(err) {
-        if (err)
-          throw err;
-        else
-          console.log('save timer successfully...');
+      if (err)
+        throw err;
+      else
+        console.log('save timer successfully...');
     });
   });
 
