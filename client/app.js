@@ -20,7 +20,7 @@ angular.module('app', ['ngRoute'])
       controller: 'StopWatchCtrl'
    })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '/#'
     });
 })
 

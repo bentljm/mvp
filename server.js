@@ -10,11 +10,10 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'client')));
 
-
-port = process.env.PORT || 3000;
+port = process.env.PORT || 4000;
 
 var server = app.listen(port);
-console.log('Listening on port ' + 5000);
+console.log('Listening on port ' + port);
 
 //handle POST request
 app.post('/api/data', function(req, res){
