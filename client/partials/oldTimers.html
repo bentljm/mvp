@@ -1,0 +1,7 @@
+<div ng-controller='OldTimersCtrl'>
+  <h4>Old Timers</h4>
+  <div ng-repeat="n in oldTimers track by $index">
+    <div><strong>{{ n }}</strong></div><div>{{ n.timer }}</div>
+  </div>
+</div>
+

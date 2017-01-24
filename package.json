@@ -4,6 +4,7 @@
   "description": "timer app",
   "main": "app.js",
   "dependencies": {
+    "angular": "^1.6.1",
     "express": "^4.14.0",
     "mongoose": "^4.7.7"
   },
