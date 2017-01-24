@@ -10,6 +10,11 @@ db.once('open', function() {
   console.log('Successfully connected to database')
 });
 
+db.on('disconnected', function () {
+  console.log('Mongoose default connection disconnected');
+  db.remove( { } )
+});
+
 //create new timer schema
 var timerSchema = new Schema({
   timer: Number
