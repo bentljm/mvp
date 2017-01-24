@@ -10,6 +10,10 @@ angular.module('app', ['ngRoute'])
       templateUrl: 'partials/oldTimers.html',
       controller: 'OldTimersCtrl'
     })
+   .when('/currentTime', {
+      templateUrl: 'partials/currentTime.html',
+      controller: 'CurrentTimeCtrl'
+   })
     .otherwise({
       redirectTo: '/'
     });
@@ -25,14 +29,12 @@ angular.module('app', ['ngRoute'])
       url: '/api/data',
     })
     .then(function (resp) {
-      console.log("GET", resp)
       return resp.data;
     });
   };
 
   //define function to save a timer
   var saveTimer = function(timer) {
-    console.log("FROM SAVETIMER FUNCTION", timer)
     return $http({
       method: 'POST',
       url: '/api/data',
@@ -54,8 +56,7 @@ angular.module('app', ['ngRoute'])
 .controller('TimerCtrl', function($scope, Timer) {
 
   $scope.startTimer = function() {
-    Timer.saveTimer($scope.time)
-
+    Timer.saveTimer($scope.time);
     var clock = document.getElementById('clockdiv');
     var timeinterval = setInterval(function() {
       clock.innerHTML = $scope.time + ' seconds left'
@@ -70,17 +71,22 @@ angular.module('app', ['ngRoute'])
 })
 
 .controller('OldTimersCtrl', function($scope, Timer) {
-  $scope.allTimer = [];
+  $scope.oldTimers = [];
 
   Timer.getTimers()
     .then(function(timers) {
-      console.log("ALL TIMES FROM OLDTIMERSCTRL", timers)
-      $scope.allTimer = timers;
-      console.log("SCOPE", $scope.allTimer)
+      $scope.oldTimers = timers;
     })
 
 })
 
+
+.controller('CurrentTimeCtrl', function ($scope) {
+  $scope.clock = Date();
+  var currentClock = document.getElementById('currentTime').innerHTML;
+  currentClock = $scope.clock;
+  console.log("CURRENT CLOCK", currentClock)
+})
 
 
 

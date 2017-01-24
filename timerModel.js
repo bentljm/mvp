@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var express = require('express');
 var Schema = mongoose.Schema;
 
 //connect to database
