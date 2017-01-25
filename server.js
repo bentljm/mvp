@@ -17,24 +17,23 @@ console.log('Listening on port ' + port);
 
 //handle POST request
 app.post('/api/data', function(req, res){
-    var newTimer = new Timer({
-        timer: req.body.timer
-    });
-    newTimer.save(function(err) {
-      if (err)
-        throw err;
-      else
-        console.log('save timer successfully...');
-    });
+  var newTimer = new Timer({
+      timer: req.body.timer
   });
+  newTimer.save(function(err) {
+    if (err)
+      throw err;
+    else
+      console.log('save timer successfully...');
+  });
+});
 
-//handle a GET req
+//handle a GET request
 app.get('/api/data', function (req, res) {
   Timer.find().then(function(timers) { 
   res.send(timers); 
   })
 });
-
 
 module.exports = app;
 

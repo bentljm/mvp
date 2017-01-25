@@ -25,7 +25,6 @@ angular.module('app', ['ngRoute'])
 })
 
 .factory('Timer', function($http) {
-
   //define function to get all past timers
   var getTimers = function() {
     return $http({
@@ -36,7 +35,6 @@ angular.module('app', ['ngRoute'])
       return resp.data;
     });
   };
-
   //define function to save a timer
   var saveTimer = function(timer) {
     return $http({
@@ -48,7 +46,7 @@ angular.module('app', ['ngRoute'])
       return resp;
     });
   };
-
+  //return functions
   return {
     saveTimer: saveTimer,
     getTimers: getTimers
@@ -57,7 +55,6 @@ angular.module('app', ['ngRoute'])
 
 //TimerCtrl
 .controller('TimerCtrl', function($scope, Timer) {
-
   $scope.startTimer = function() {
     Timer.saveTimer($scope.time);
     var clock = document.getElementById('clockdiv');
@@ -74,10 +71,10 @@ angular.module('app', ['ngRoute'])
 
 //OldTimersCtrl
 .controller('OldTimersCtrl', function($scope, Timer) {
-  $scope.oldTimers = [];
-
+  $scope.oldTimers;
   Timer.getTimers()
     .then(function(timers) {
+      console.log("TIMERS", timers)
       $scope.oldTimers = timers;
     });
 })
@@ -92,7 +89,6 @@ angular.module('app', ['ngRoute'])
 //StopWatchCtrl
 .controller('StopWatchCtrl', function ($scope, Timer) {
   var h3 = document.getElementsByTagName('h3')[0], milliseconds = 0, seconds = 0, minutes = 0, hours = 0, t;
-
   //function adds time to DOM
   function add() {
     milliseconds++;
@@ -116,21 +112,16 @@ angular.module('app', ['ngRoute'])
   $scope.start = function() {
     t = setTimeout(add, 16);
   }
-
   //stop button
   $scope.stop = function() {
     clearTimeout(t);
     //Timer.saveTimer(h3.textContent);
   }
-
   //clear button
   $scope.clear = function() {
     h3.textContent = "00:00:00:00";
     milliseconds = 0; seconds = 0; minutes = 0; hours = 0;
   }
-
-
-
 })
 
 
