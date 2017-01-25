@@ -1,7 +1,17 @@
 <div id='container' ng-controller='OldTimersCtrl'>
-  <h4>Old Timers</h4>
-  <div ng-repeat="n in oldTimers track by $index">
-    <div><strong>ID: {{ n._id.slice(-5) }} - </strong>{{ n.timer }} seconds</div>
-  </div>
-</div>
+  <h4 id='tableHead'>List of Old Timers</h4>
+  <table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Time (secs)</th>
+    </tr>
+  </thead>
+  <tbody ng-repeat="n in oldTimers track by $index">
+    <tr>
+      <td>{{ n._id.slice(-6) }}</td>
+      <td>{{ n.timer }}</td>
+    </tr>
+  </tbody>
+</table>
 
