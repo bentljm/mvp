@@ -18,6 +18,11 @@ h2 {
   margin-left: 10px;
 }
 
+h3 {
+  margin-left: 10px;
+}
+
+
 h4 {
   text-decoration: underline;
 }
@@ -71,6 +76,11 @@ input {
 #tableHead {
   margin-left: 20px;
 }
+
+#stopwatchHeader {
+  margin-left: 10px;
+}
+
 
 td, th {
   border: 1px solid #999;
