@@ -39,7 +39,6 @@ angular.module('app', ['ngRoute'])
 
   //define function to save a timer
   var saveTimer = function(timer) {
-    console.log('TIMER', timer)
     return $http({
       method: 'POST',
       url: '/api/data',
@@ -75,7 +74,6 @@ angular.module('app', ['ngRoute'])
 
 //OldTimersCtrl
 .controller('OldTimersCtrl', function($scope, Timer) {
-
   $scope.oldTimers = [];
 
   Timer.getTimers()
@@ -95,6 +93,7 @@ angular.module('app', ['ngRoute'])
 .controller('StopWatchCtrl', function ($scope, Timer) {
   var h3 = document.getElementsByTagName('h3')[0], milliseconds = 0, seconds = 0, minutes = 0, hours = 0, t;
 
+  //function adds time to DOM
   function add() {
     milliseconds++;
     if(milliseconds >= 60) {
@@ -108,7 +107,6 @@ angular.module('app', ['ngRoute'])
             hours++;
         }
     }
-
     h3.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds) + ":" + (milliseconds > 9 ? milliseconds : "0" + milliseconds);
 
     $scope.start();
